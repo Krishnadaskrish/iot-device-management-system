@@ -1,4 +1,4 @@
-# backend/user-service/Dockerfile
+# backend/api-gateway/Dockerfile
 
 # Use a Node.js base image
 FROM node:14
@@ -16,7 +16,7 @@ RUN npm install
 COPY . .
 
 # Expose port
-EXPOSE 3001
+EXPOSE 3000
 
 # Command to run the application
 CMD ["npm", "start"]
