@@ -1,0 +1,32 @@
+
+services:
+  user-service:
+    build:
+      context: ./backend/user-service
+    ports:
+      - "3001:3001"
+    environment:
+      - MONGODB_URI=mongodb+srv://krishnadas10official:fFs00SzLQF63TU4D@cluster0.okzakwg.mongodb.net/CrudTask
+    depends_on:
+      - mongo
+
+  
+  api-gateway:
+    build:
+      context: ./backend/api-gateway
+    ports:
+      - "3000:3000"
+    environment:
+      - USER_SERVICE_URL=http://user-service:3001
+    depends_on:
+      - user-service
+
+  mongo:
+    image: mongo:latest
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongo-data:/data/db
+
+volumes:
+  mongo-data:
