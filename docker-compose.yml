@@ -15,7 +15,7 @@ services:
     build:
       context: ./backend/api-gateway
     ports:
-      - "3000:3000"
+      - "3008:3008"
     environment:
       - USER_SERVICE_URL=http://user-service:3001
     depends_on:
