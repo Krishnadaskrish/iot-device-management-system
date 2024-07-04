@@ -6,9 +6,20 @@ services:
     ports:
       - "3001:3001"
     environment:
-      - MONGODB_URI=mongodb+srv://krishnadas10official:fFs00SzLQF63TU4D@cluster0.okzakwg.mongodb.net/CrudTask
+      - MONGODB_URI=mongodb://0.0.0.0:27017/user-service
     depends_on:
       - mongo
+
+
+  device-service:
+    build:
+      context: ./backend/device-service
+    ports:
+      - "3002:3002"
+    environment:
+      - MONGODB_URI=mongodb://0.0.0.0:27017/device-service
+    depends_on:
+      - mongo    
 
   
   api-gateway:

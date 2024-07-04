@@ -1,4 +1,4 @@
-# backend/user-service/Dockerfile
+# backend/device-service/Dockerfile
 
 # Use a Node.js base image
 FROM node:14
@@ -11,7 +11,6 @@ COPY package*.json ./
 
 # Install dependencies
 RUN npm install
-RUN npm install -g nodemon
 
 
 
@@ -19,7 +18,7 @@ RUN npm install -g nodemon
 COPY . .
 
 # Expose port
-EXPOSE 3001
+EXPOSE 3002
 
 # Command to run the application
 CMD ["npm", "start"]

@@ -12,6 +12,13 @@ app.use('/api/user', createProxyMiddleware({
     target: process.env.USER_SERVICE_URL,
     changeOrigin: true
   }));
+  
+// Proxy for User Service
+
+  app.use('/api/device', createProxyMiddleware({
+    target: process.env.DEVICE_SERVICE_URL,
+    changeOrigin: true
+  }));
 
 
 
